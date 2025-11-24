@@ -1,0 +1,296 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Danh sách bệnh — Y Khoa Đế Vương</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-row">
+      <div class="brand">
+        <div class="logo">YK</div>
+        <div>
+          <div style="font-weight:700">Y KHOA ĐẾ VƯƠNG</div>
+          <div class="small-muted">Danh sách bệnh &amp; tìm kiếm realtime</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="diseases.html">Danh sách bệnh</a>
+        <a href="doctors.html">Bác sĩ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="searchBox" style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
+      <input id="q" type="text" placeholder="Tìm theo tên bệnh hoặc triệu chứng (ví dụ: sốt, ho)" />
+      <select id="filterCategory" style="width:200px"></select>
+      <select id="sortBox" style="width:160px">
+        <option value="none">Sắp xếp</option>
+        <option value="az">A → Z</option>
+        <option value="za">Z → A</option>
+        <option value="group">Theo chuyên khoa</option>
+      </select>
+      <button id="btnSearch">Tìm</button>
+    </div>
+
+    <div style="margin-top:12px" id="suggestionRegion">
+      <div class="card" style="display:flex;align-items:center;gap:12px">
+        <div style="flex:1">
+          <strong>Đề xuất bệnh theo triệu chứng</strong>
+          <div id="suggestBox" class="meta" style="margin-top:6px">Nhập triệu chứng vào ô tìm kiếm để nhận gợi ý nhanh.</div>
+        </div>
+        <div style="min-width:180px;text-align:right">
+          <small class="meta">Gợi ý tự động • Offline</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <aside class="card">
+        <strong>Danh mục bệnh</strong>
+
+        <div class="smallCard" style="margin-top:12px">
+          <strong>Triệu chứng phổ biến</strong>
+          <div style="margin-top:8px">
+            <span class="symptom-chip" onclick="quickSearch('sốt')">Sốt</span>
+            <span class="symptom-chip" onclick="quickSearch('ho')">Ho</span>
+            <span class="symptom-chip" onclick="quickSearch('đau họng')">Đau họng</span>
+            <span class="symptom-chip" onclick="quickSearch('mụn nước')">Mụn nước</span>
+            <span class="symptom-chip" onclick="quickSearch('tiêu chảy')">Tiêu chảy</span>
+          </div>
+        </div>
+
+        <div class="categories" id="cats"></div>
+
+        <div style="margin-top:8px">
+          <input id="symptomFilter" type="text" placeholder="Lọc theo triệu chứng (ví dụ: ho)" style="width:100%;padding:8px;border-radius:8px;border:1px solid #eee"/>
+        </div>
+
+        <div style="margin-top:10px" class="meta">Nhấp vào một bệnh để xem chi tiết.</div>
+
+        <div class="list" id="results"></div>
+      </aside>
+
+      <section class="card detail" id="detail">
+        <div class="grid-2">
+          <div>
+            <h2>Chọn bệnh để xem chi tiết</h2>
+            <div class="meta">Thông tin mô tả, triệu chứng, cách phòng ngừa, ảnh minh họa và video.</div>
+
+            <div class="section" id="detailContent" style="animation:fadeDetail 350ms ease">
+              <p>Danh sách bệnh đã được thêm sẵn. Dùng ô tìm kiếm để lọc nhanh.</p>
+            </div>
+
+            <div class="section" id="relatedSection" style="margin-top:18px">
+              <strong>Bệnh liên quan</strong>
+              <div id="relatedBox" class="meta" style="margin-top:8px">Chưa có dữ liệu</div>
+            </div>
+
+            <div class="section" style="margin-top:14px">
+              <strong>Nguồn tham khảo</strong>
+              <ul class="meta">
+                <li>WHO — Tổ chức Y tế Thế giới</li>
+                <li>Bộ Y tế Việt Nam</li>
+                <li>CDC — Centers for Disease Control</li>
+                <li>PubMed</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="card" style="padding:12px;margin-bottom:12px">
+              <strong>Tóm tắt nhanh</strong>
+              <div id="quickInfo" class="meta" style="margin-top:8px">Chọn một bệnh để xem tóm tắt.</div>
+            </div>
+
+            <div class="card" style="padding:10px">
+              <strong>Hỗ trợ</strong>
+              <div class="meta" style="margin-top:8px">Y KHOA ĐẾ VƯƠNG — THÔNG TIN THAM KHẢO. TRƯỜNG HỢP CẤP CỨU HÃY LIÊN HỆ CƠ SỞ Y TẾ GẦN NHẤT.</div>
+            </div>
+
+            <div class="card" style="padding:10px;margin-top:12px">
+              <strong>Liên hệ khẩn cấp</strong>
+              <div class="meta" style="margin-top:8px">Cấp cứu: <b>115</b><br> Tư vấn 24/7: <b>1900.3151</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <small>WEBSITE ĐƯỢC THÀNH LẬP BỞI: KHANG ĐÀO &amp; CHATGPT</small>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>
+    // Inline logic adapted from provided code, using fetch to load data
+    (async function(){
+      const DISEASES = await app.loadData();
+      const qEl = document.getElementById('q');
+      const btn = document.getElementById('btnSearch');
+      const resultsEl = document.getElementById('results');
+      const detailContent = document.getElementById('detailContent');
+      const statsEl = document.getElementById('quickInfo');
+      const symptomFilter = document.getElementById('symptomFilter');
+      const filterCategory = document.getElementById('filterCategory');
+      const catsWrap = document.getElementById('cats');
+      const suggestBox = document.getElementById('suggestBox');
+      const sortBox = document.getElementById('sortBox');
+
+      // build categories
+      const groups = Array.from(new Set(DISEASES.map(d=>d.group)));
+      filterCategory.innerHTML = '<option value="all">Tất cả chuyên khoa</option>';
+      groups.forEach(g=>{
+        const opt = document.createElement('option'); opt.value = g; opt.textContent = g; filterCategory.appendChild(opt);
+        const b = document.createElement('div'); b.className='cat'; b.textContent = g; b.dataset.group = g;
+        b.addEventListener('click', ()=> selectCategory(g));
+        catsWrap.appendChild(b);
+      });
+
+      function scoreDisease(d, q){
+        if(!q) return 0;
+        const qTokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+        let score = 0;
+        qTokens.forEach(t=>{
+          if(d.name.toLowerCase().includes(t)) score += 8;
+          if((d.description||'').toLowerCase().includes(t)) score += 4;
+          d.symptoms.forEach(s=>{ if(s.toLowerCase().includes(t)) score += 6; });
+          if(d.group.toLowerCase().includes(t)) score += 2;
+        });
+        const matchedSymptoms = d.symptoms.filter(s=> qTokens.some(t => s.toLowerCase().includes(t))).length;
+        score += matchedSymptoms * 3;
+        return score;
+      }
+
+      function sortDiseases(list){
+        const mode = sortBox.value;
+        if(mode === 'az') return list.slice().sort((a,b)=> a.name.localeCompare(b.name));
+        if(mode === 'za') return list.slice().sort((a,b)=> b.name.localeCompare(a.name));
+        if(mode === 'group') return list.slice().sort((a,b)=> a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+        return list;
+      }
+
+      function renderList(list){
+        resultsEl.innerHTML = '';
+        if(list.length===0){ resultsEl.innerHTML = '<div class="meta">Không có kết quả</div>'; return }
+        list.forEach((d,i)=>{
+          const it = document.createElement('div'); it.className='item';
+          it.innerHTML = `<img class="thumb" src="${d.img}" alt=""><div style="flex:1"><strong>${d.name}</strong><div class="meta">${d.group} • Triệu chứng: ${d.symptoms.slice(0,3).join(', ')}</div></div>`;
+          it.addEventListener('click', ()=> showDetail(d));
+          it.style.animation = `slideIn .32s ease ${i*45}ms forwards`;
+          resultsEl.appendChild(it);
+        })
+      }
+
+      function showDetail(d){
+        detailContent.style.opacity = 0;
+        setTimeout(()=>{
+          detailContent.innerHTML = `
+            <div><strong style="font-size:18px">${escapeHtml(d.name)}</strong></div>
+            <div class="meta">Nhóm: ${escapeHtml(d.group)}</div>
+            <div class="section"><strong>Mô tả:</strong><div>${escapeHtml(d.description)}</div></div>
+            <div class="section"><strong>Triệu chứng:</strong><div>${d.symptoms.map(s=>`<span class="symptom">${escapeHtml(s)}</span>`).join('')}</div></div>
+            <div class="section"><strong>Cách phòng ngừa:</strong><ul>${d.prevention.map(p=>`<li>${escapeHtml(p)}</li>`).join('')}</ul></div>
+            <div class="section"><strong>Hình minh họa:</strong><img src="${d.img}" style="width:100%;border-radius:10px;margin-top:8px" alt="Ảnh minh họa"></div>
+            <div class="section videoWrap"><strong>Video phòng ngừa:</strong><br>
+              <iframe src="${d.video}" allowfullscreen></iframe>
+            </div>
+          `;
+          detailContent.style.animation = 'fadeDetail .32s ease';
+          detailContent.style.opacity = 1;
+        }, 80);
+
+        statsEl.textContent = `${d.name} — Nhóm: ${d.group} — Triệu chứng chính: ${d.symptoms.slice(0,3).join(', ')}`;
+        document.querySelectorAll('.cat').forEach(c=> c.classList.toggle('active', c.dataset.group === d.group));
+
+        const related = DISEASES.filter(x => x.id !== d.id)
+          .map(x => {
+            let rel = 0;
+            if(x.group === d.group) rel += 5;
+            const common = x.symptoms.filter(s => d.symptoms.some(ds => ds.toLowerCase() === s.toLowerCase())).length;
+            rel += common * 3;
+            return {x, rel};
+          })
+          .filter(o => o.rel > 0)
+          .sort((a,b)=> b.rel - a.rel)
+          .slice(0,4)
+          .map(o=> o.x.name);
+        document.getElementById('relatedBox').textContent = related.length ? related.join(' • ') : 'Không có gợi ý liên quan';
+      }
+
+      window.quickSearch = function(term){ qEl.value = term; search(); }
+      window.showDetailById = function(id){ const d = DISEASES.find(x=> x.id === id); if(d) showDetail(d); }
+
+      function suggestByQuery(q){
+        q = (q||'').trim().toLowerCase();
+        if(!q){ suggestBox.textContent = 'Nhập triệu chứng vào ô tìm kiếm để nhận gợi ý nhanh.'; return; }
+        const scored = DISEASES.map(d => ({d, s: scoreDisease(d,q)}))
+          .filter(o => o.s>0)
+          .sort((a,b)=> b.s - a.s)
+          .slice(0,3)
+          .map(o=> o.d);
+        if(scored.length===0){
+          suggestBox.textContent = 'Không tìm thấy đề xuất phù hợp. Hãy thử nhập cụ thể hơn (ví dụ: "ho", "sốt cao").';
+          return;
+        }
+        suggestBox.innerHTML = scored.map(s=> `<div style="padding:6px 0;cursor:pointer" onclick="showDetailById(${s.id})"><strong>${escapeHtml(s.name)}</strong><div class="meta">${escapeHtml(s.group)} • ${s.symptoms.slice(0,2).join(', ')}${s.symptoms.length>2?'...':''}</div></div>`).join('');
+      }
+
+      function search(){
+        const q = qEl.value.trim().toLowerCase();
+        const cat = filterCategory.value;
+        const symptomQ = symptomFilter.value.trim().toLowerCase();
+
+        let list = DISEASES.filter(d=>{
+          if(cat!=='all' && d.group !== cat) return false;
+          if(q){
+            const inName = d.name.toLowerCase().includes(q) || (d.description||'').toLowerCase().includes(q);
+            const inSym = d.symptoms.some(s=>s.toLowerCase().includes(q));
+            if(!(inName||inSym)) return false;
+          }
+          if(symptomQ){
+            const has = d.symptoms.some(s=>s.toLowerCase().includes(symptomQ));
+            if(!has) return false;
+          }
+          return true;
+        });
+
+        if(q){
+          list = list.map(d => ({d, s: scoreDisease(d,q)})).sort((a,b)=> b.s - a.s).map(o=> o.d);
+        }
+
+        list = sortDiseases(list);
+        renderList(list);
+        if(list.length>0) showDetail(list[0]);
+        suggestByQuery(q);
+      }
+
+      function selectCategory(g){
+        filterCategory.value = g;
+        document.querySelectorAll('.cat').forEach(c=> c.classList.toggle('active', c.dataset.group===g));
+        search();
+      }
+
+      function init(){
+        renderList(DISEASES);
+        showDetail(DISEASES[0]);
+      }
+
+      btn.addEventListener('click', search);
+      qEl.addEventListener('input', ()=> search());
+      qEl.addEventListener('keydown', e=>{ if(e.key==='Enter') search(); });
+      filterCategory.addEventListener('change', search);
+      symptomFilter.addEventListener('input', search);
+      sortBox.addEventListener('change', search);
+
+      init();
+    })();
+  </script>
+</body>
+</html>

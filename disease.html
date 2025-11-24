@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết bệnh — Y Khoa Đế Vương</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-row">
+      <div class="brand">
+        <div class="logo">YK</div>
+        <div>
+          <div style="font-weight:700">Y KHOA ĐẾ VƯƠNG</div>
+          <div class="small-muted">Trang chi tiết bệnh</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="diseases.html">Danh sách bệnh</a>
+        <a href="doctors.html">Bác sĩ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="content" class="card">
+      <h2>Đang tải...</h2>
+      <p class="meta">Nếu không thấy dữ liệu, hãy kiểm tra tham số ?id= trong URL.</p>
+    </div>
+
+    <footer style="margin-top:18px">
+      <small>WEBSITE ĐƯỢC THÀNH LẬP BỞI: ĐÀO VĨNH KHANG &amp; KHANG ĐÀO</small>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>
+(async function(){
+  const DISEASES = await app.loadData();
+  const el = document.getElementById('content');
+
+  function escapeHtml(text){
+    return text.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+
+  function renderDisease(d){
+    if(!d){
+      el.innerHTML = '<h2>Không tìm thấy bệnh</h2><div class="meta">Vui lòng kiểm tra ID, hoặc quay lại <a href="diseases.html">danh sách bệnh</a>.</div>';
+      return;
+    }
+    el.innerHTML = `
+      <div style="display:flex;gap:12px;align-items:center">
+        <img src="${d.img}" alt="" style="width:160px;height:120px;object-fit:cover;border-radius:8px">
+        <div>
+          <h2 style="margin:0">${d.name}</h2>
+          <div class="meta">Nhóm: ${d.group}</div>
+          <div class="small-muted" style="margin-top:6px">${d.description}</div>
+        </div>
+      </div>
+
+      <div class="section"><strong>Triệu chứng:</strong><div style="margin-top:8px">${d.symptoms.map(s=> `<span class="symptom">${escapeHtml(s)}</span>`).join('')}</div></div>
+
+      <div class="section"><strong>Cách phòng ngừa:</strong><ul>${d.prevention.map(p=>`<li>${escapeHtml(p)}</li>`).join('')}</ul></div>
+
+      <div class="section videoWrap"><strong>Video minh họa:</strong><br><iframe src="${d.video}" allowfullscreen></iframe></div>
+
+      <div class="section" style="margin-top:12px">
+        <button id="prevBtn">← Previous</button>
+        <button id="nextBtn">Next →</button>
+      </div>
+
+      <div class="section" style="margin-top:12px"><a href="diseases.html">↩ Quay lại danh sách bệnh</a></div>
+    `;
+
+    document.getElementById('prevBtn').addEventListener('click', ()=>navigateDisease(-1));
+    document.getElementById('nextBtn').addEventListener('click', ()=>navigateDisease(1));
+    select.value = d.id; // cập nhật dropdown
+  }
+
+  // Dropdown chọn bệnh
+  const selectWrap = document.createElement('div');
+  selectWrap.style.marginBottom = '12px';
+  selectWrap.innerHTML = `<label for="diseaseSelect"><strong>Chọn bệnh:</strong></label>
+                          <select id="diseaseSelect"></select>`;
+  el.parentNode.insertBefore(selectWrap, el);
+  const select = document.getElementById('diseaseSelect');
+
+  DISEASES.forEach(d=>{
+    const opt = document.createElement('option');
+    opt.value = d.id;
+    opt.textContent = d.name;
+    select.appendChild(opt);
+  });
+
+  select.addEventListener('change', ()=>{
+    const id = Number(select.value);
+    currentIndex = DISEASES.findIndex(x=>x.id===id);
+    renderDisease(DISEASES[currentIndex]);
+  });
+
+  // Xác định bệnh hiện tại
+  const params = new URLSearchParams(location.search);
+  let currentIndex = DISEASES.findIndex(x => x.id === Number(params.get('id'))) || 0;
+
+  function navigateDisease(step){
+    currentIndex += step;
+    if(currentIndex < 0) currentIndex = DISEASES.length - 1;
+    if(currentIndex >= DISEASES.length) currentIndex = 0;
+    renderDisease(DISEASES[currentIndex]);
+  }
+
+  // Render ban đầu
+  renderDisease(DISEASES[currentIndex]);
+})();
+</script>
+
+</body>
+</html>

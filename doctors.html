@@ -1,0 +1,144 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trang bác sĩ — Y Khoa Đế Vương</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-row">
+      <div class="brand">
+        <div class="logo">YK</div>
+        <div>
+          <div style="font-weight:700">Y KHOA ĐẾ VƯƠNG</div>
+          <div class="small-muted">Danh sách bác sĩ</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="diseases.html">Danh sách bệnh</a>
+        <a href="doctors.html">Bác sĩ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Danh sách bác sĩ</h2>
+      <p class="meta">Lọc theo chuyên khoa để tìm bác sĩ phù hợp.</p>
+
+      <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+        <select id="docFilter">
+          <option value="all">Tất cả chuyên khoa</option>
+          <option value="Bệnh hô hấp">Bệnh hô hấp</option>
+          <option value="Bệnh truyền nhiễm">Bệnh truyền nhiễm</option>
+          <option value="Bệnh tiêu hóa">Bệnh tiêu hóa</option>
+          <option value="Bệnh da liễu">Bệnh da liễu</option>
+          <option value="Bệnh tim mạch">Bệnh tim mạch</option>
+        </select>
+        <input id="docQ" placeholder="Tìm tên bác sĩ..." type="text" />
+        <button id="btnDoc">Tìm</button>
+      </div>
+
+      <div id="docList" style="margin-top:12px"></div>
+    </div>
+
+    <footer style="margin-top:18px">
+      <small>WEBSITE ĐƯỢC THÀNH LẬP BỞI: ĐÀO VĨNH KHANG &amp; KHANG ĐÀO</small>
+    </footer>
+  </main>
+
+ <script>
+  const DOCTORS = [
+    {
+      id:1,
+      name:'PGS. TS. Đào Vĩnh Khang',
+      specialty:'Bệnh hô hấp',
+      hospital:'Bệnh viện 69',
+      phone:'0123 456 789',
+      facebook:'https://www.facebook.com/share/1JqwyV3ASA/?mibextid=wwXIfr'
+    },
+    {
+      id:2,
+      name:'TS. Huỳnh Hoàng Đạt',
+      specialty:'Bệnh truyền nhiễm',
+      hospital:'Bệnh viện 69',
+      phone:'0987 654 321',
+      facebook:'https://www.facebook.com/share/1Ctj6dHfxE/?mibextid=wwXIfr'
+    },
+    {
+      id:3,
+      name:'BS. Lê Phúc Hậu',
+      specialty:'Bệnh tiêu hóa',
+      hospital:'Bệnh viện 69',
+      phone:'0912 345 678',
+      facebook:'https://www.facebook.com/share/1A2JWjrGkH/?mibextid=wwXIfr'
+    },
+    {
+      id:4,
+      name:'BS. Trần Thanh Trọng',
+      specialty:'Bệnh da liễu',
+      hospital:'Bệnh viện 69',
+      phone:'0901 234 567',
+      facebook:'https://www.facebook.com/share/1AHBmravca/?mibextid=wwXIfr'
+    },
+    {
+      id:5,
+      name:'TS. Phạm Thành Huy',
+      specialty:'Bệnh tim mạch',
+      hospital:'Bệnh viện 69',
+      phone:'0933 222 111',
+      facebook:'https://www.facebook.com/share/1AFiY54GsZ/?mibextid=wwXIfr'
+    }
+  ];
+
+  function renderDoctors(list){
+    const wrap = document.getElementById('docList');
+    wrap.innerHTML = '';
+    if(!list.length){
+      wrap.innerHTML = '<div class="meta">Không tìm thấy bác sĩ</div>';
+      return;
+    }
+
+    list.forEach(d => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.style.marginBottom = '10px';
+      div.innerHTML = `
+        <strong>${d.name}</strong>
+        <div class="meta">${d.specialty} • ${d.hospital}</div>
+
+        <div style="margin-top:6px">
+          Liên hệ Facebook:
+          <a href="${d.facebook}" target="_blank" style="color:var(--accent);font-weight:700">
+            Nhấn để mở
+          </a>
+        </div>
+      `;
+      wrap.appendChild(div);
+    });
+  }
+
+  document.getElementById('btnDoc').addEventListener('click', () => {
+    const q = document.getElementById('docQ').value.trim().toLowerCase();
+    const f = document.getElementById('docFilter').value;
+
+    let list = DOCTORS.filter(x => (f === 'all' || x.specialty === f));
+
+    if(q) list = list.filter(x =>
+      x.name.toLowerCase().includes(q) ||
+      x.hospital.toLowerCase().includes(q)
+    );
+
+    renderDoctors(list);
+  });
+
+  // initial
+  renderDoctors(DOCTORS);
+</script>
+
+</body>
+</html>
