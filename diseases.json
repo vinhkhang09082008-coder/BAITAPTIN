@@ -1,0 +1,347 @@
+[
+  {
+    "id": 1,
+    "name": "Cảm cúm (Influenza)",
+    "group": "Bệnh hô hấp",
+    "description": "Nhiễm virus đường hô hấp gây sốt, đau mỏi cơ, ho, chảy mũi.",
+    "symptoms": [
+      "sốt",
+      "ho",
+      "đau họng",
+      "mệt mỏi"
+    ],
+    "prevention": [
+      "Tiêm vaccine hàng năm",
+      "Rửa tay thường xuyên",
+      "Nghỉ ngơi nhiều"
+    ],
+    "img": "https://bloganchoi.com/wp-content/uploads/2017/12/dau-hieu-cam-cum.jpg",
+    "video": "https://www.youtube.com/embed/en6tG5xkHe4?si=Ro9fhZ1jf-9xm4jC"
+  },
+  {
+    "id": 2,
+    "name": "Viêm phổi (Pneumonia)",
+    "group": "Bệnh hô hấp",
+    "description": "Viêm tổ chức phổi có thể do vi khuẩn hoặc virus, gây ho, sốt và khó thở.",
+    "symptoms": [
+      "sốt cao",
+      "ho",
+      "khó thở",
+      "đau ngực"
+    ],
+    "prevention": [
+      "Tiêm chủng pneumococcal",
+      "không hút thuốc",
+      "khử khuẩn tay"
+    ],
+    "img": "https://omron-yte.com.vn/wp-content/uploads/2021/10/hinh-anh-viem-phoi.jpg",
+    "video": "https://www.youtube.com/embed/_za9K_2e9es?si=fONW_1uZ_c3S1UGU"
+  },
+  {
+    "id": 3,
+    "name": "Viêm xoang (Sinusitis)",
+    "group": "Bệnh hô hấp",
+    "description": "Viêm các xoang quanh mũi, gây nghẹt mũi, đau mặt.",
+    "symptoms": [
+      "nghẹt mũi",
+      "đau mặt",
+      "chảy mũi"
+    ],
+    "prevention": [
+      "Rửa mũi nước muối",
+      "tránh dị ứng"
+    ],
+    "img": "https://vinmec-prod.s3.amazonaws.com/images/20191212_030549_415397_viem-xoang.max-800x800.jpg",
+    "video": "https://www.youtube.com/embed/ktLWj2XiLJQ?si=zXRwVW_zxGAMpGl-"
+  },
+  {
+    "id": 4,
+    "name": "Hen suyễn (Asthma)",
+    "group": "Bệnh hô hấp",
+    "description": "Bệnh mạn tính đường thở gây khò khè, khó thở.",
+    "symptoms": [
+      "khò khè",
+      "khó thở",
+      "ho về đêm"
+    ],
+    "prevention": [
+      "tránh dị nguyên",
+      "dùng thuốc kiểm soát theo hướng dẫn"
+    ],
+    "img": "https://hongngochospital.vn/wp-content/uploads/2023/05/hen-suyen.jpg",
+    "video": "https://www.youtube.com/embed/IvGMxUTTq2M?si=MhDKc-IwBEvN07RA"
+  },
+  {
+    "id": 5,
+    "name": "COVID-19",
+    "group": "Bệnh truyền nhiễm",
+    "description": "Bệnh do virus SARS-CoV-2, biểu hiện đa dạng từ nhẹ đến nặng.",
+    "symptoms": [
+      "sốt",
+      "ho",
+      "mất vị giác",
+      "mệt mỏi"
+    ],
+    "prevention": [
+      "Tiêm vaccine",
+      "khẩu trang",
+      "rửa tay"
+    ],
+    "img": "https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2022/9/6/virus-covid-19-16624508278602855536.jpeg",
+    "video": "https://www.youtube.com/embed/45VVRS_cSgc?si=cYJMe9rK94cXRbhU"
+  },
+  {
+    "id": 6,
+    "name": "Sốt xuất huyết",
+    "group": "Bệnh truyền nhiễm",
+    "description": "Do virus Dengue, truyền bởi muỗi vằn, có thể gây sốt cao và chảy máu.",
+    "symptoms": [
+      "sốt cao",
+      "đau cơ",
+      "chảy máu cam",
+      "nổi ban"
+    ],
+    "prevention": [
+      "Ngăn muỗi sinh sản",
+      "màn chống muỗi",
+      "phun thuốc diệt muỗi"
+    ],
+    "img": "https://vienhuyethoc.vn/wp-content/uploads/2020/11/S%E1%BB%91t-xu%E1%BA%A5t-huy%E1%BA%BFt-2020.jpg",
+    "video": "https://www.youtube.com/embed/AkJBQoAbNho?si=b8ZKLZaJNHbFCxAC"
+  },
+  {
+    "id": 7,
+    "name": "Tay chân miệng",
+    "group": "Bệnh truyền nhiễm",
+    "description": "Thường gặp ở trẻ em, do virus gây loét miệng và bóng nước.",
+    "symptoms": [
+      "sốt",
+      "loét miệng",
+      "bóng nước tay chân"
+    ],
+    "prevention": [
+      "rửa tay",
+      "tránh tiếp xúc gần trẻ bệnh"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.--D3PUYrkddOXl91cP_9SAHaGW?w=182&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/aU-nA_rn5N8?si=LNMPI39FMjOkFkUp"
+  },
+  {
+    "id": 8,
+    "name": "Thủy đậu (Chickenpox)",
+    "group": "Bệnh truyền nhiễm",
+    "description": "Nổi mụn nước ngứa toàn thân, lây qua tiếp xúc trực tiếp.",
+    "symptoms": [
+      "sốt",
+      "mụn nước ngứa"
+    ],
+    "prevention": [
+      "Tiêm vaccine",
+      "cách ly người bệnh"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.HwMLvusnEJuU6-LFpHEwcAHaEK?w=284&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/xi9_P-oVXEE?si=oCwx9LfL8Y3vFO8q"
+  },
+  {
+    "id": 9,
+    "name": "Viêm dạ dày (Gastritis)",
+    "group": "Bệnh tiêu hóa",
+    "description": "Viêm niêm mạc dạ dày, gây đau vùng thượng vị, buồn nôn.",
+    "symptoms": [
+      "đau thượng vị",
+      "ợ nóng",
+      "buồn nôn"
+    ],
+    "prevention": [
+      "ăn uống điều độ",
+      "tránh NSAIDs kéo dài"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.54sCgifg4HnZsckiG4LR1QHaEe?w=283&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/tFx0gyEKQ3c?si=s5GV3SSqhrMQmqTj"
+  },
+  {
+    "id": 10,
+    "name": "Tiêu chảy cấp",
+    "group": "Bệnh tiêu hóa",
+    "description": "Phân lỏng nhiều lần do nhiễm khuẩn/virus/độc tố.",
+    "symptoms": [
+      "tiêu chảy",
+      "buồn nôn",
+      "đau bụng"
+    ],
+    "prevention": [
+      "uống nước sạch",
+      "rửa tay",
+      "bù nước điện giải"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.4Gv416xnvtWORUUZxit0xwHaE7?w=245&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/U5M91lsUl_k?si=JcKbUTn1eBN8XouH"
+  },
+  {
+    "id": 11,
+    "name": "Ngộ độc thực phẩm",
+    "group": "Bệnh tiêu hóa",
+    "description": "Do ăn phải thực phẩm nhiễm khuẩn hoặc độc chất.",
+    "symptoms": [
+      "nôn",
+      "tiêu chảy",
+      "đau bụng"
+    ],
+    "prevention": [
+      "ăn chín uống sôi",
+      "bảo quản thực phẩm đúng cách"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.h6-xP6ZYxgJRDMAkz7eZ3gHaE8?w=286&h=191&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/5QIto28bjrA?si=zN2ruB6DX_wHGu30"
+  },
+  {
+    "id": 12,
+    "name": "Viêm da cơ địa (Eczema)",
+    "group": "Bệnh da liễu",
+    "description": "Da khô, ngứa, dễ viêm khi tiếp xúc dị nguyên.",
+    "symptoms": [
+      "ngứa",
+      "da đỏ",
+      "tróc vảy"
+    ],
+    "prevention": [
+      "dưỡng ẩm",
+      "tránh dị nguyên"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.QKNJHLiW-dcYnHojQOBMxwHaFj?w=205&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/_YE3sNj7zq8?si=tmCpqIKTUHyWlJp3"
+  },
+  {
+    "id": 13,
+    "name": "Nấm da (Tinea)",
+    "group": "Bệnh da liễu",
+    "description": "Nhiễm nấm gây mảng đỏ, ngứa trên da.",
+    "symptoms": [
+      "ngứa",
+      "mảng đỏ"
+    ],
+    "prevention": [
+      "giữ da khô",
+      "không dùng chung đồ cá nhân"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.hRte3D3xo6PIJdzHz6ouKQHaE8?w=265&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/VxCGG4hxJVQ?si=LKfAEh0Hz0ZguRGy"
+  },
+  {
+    "id": 14,
+    "name": "Ghẻ (Scabies)",
+    "group": "Bệnh da liễu",
+    "description": "Do ký sinh trùng Sarcoptes scabiei, gây ngứa dữ dội.",
+    "symptoms": [
+      "ngứa nhiều về đêm",
+      "nốt mẩn nhỏ"
+    ],
+    "prevention": [
+      "điều trị toàn thân",
+      "giặt đồ trải giường nóng"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.t1Z9CrFKak8i63KQ9ylCwAHaEn?w=301&h=187&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/MTMrwgBm3gw?si=I-5yYoh2uf8aZkR_"
+  },
+  {
+    "id": 15,
+    "name": "Huyết áp cao (Hypertension)",
+    "group": "Bệnh tim mạch",
+    "description": "Tăng áp lực động mạch mạn tính, nguy cơ tim mạch.",
+    "symptoms": [
+      "đau đầu",
+      "choáng váng",
+      "thường không triệu chứng rõ"
+    ],
+    "prevention": [
+      "giảm muối",
+      "tập thể dục",
+      "kiểm tra định kỳ"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.reL75soLA45P7d6xTvBIwwHaF2?w=190&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/vcjEQE8w_qk?si=2V7RjXgNN0wi_CqP"
+  },
+  {
+    "id": 16,
+    "name": "Đột quỵ (Stroke)",
+    "group": "Bệnh tim mạch",
+    "description": "Rối loạn cấp tuần hoàn não gây mất chức năng thần kinh.",
+    "symptoms": [
+      "liệt nửa người",
+      "méo miệng",
+      "nói khó"
+    ],
+    "prevention": [
+      "kiểm soát huyết áp",
+      "kiểm soát đái tháo đường"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.JByeqzlHH_pPfBGwe1FgxwHaEK?w=275&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/93Q4JZNr_To?si=6mNtEFWchMUQsQgc"
+  },
+  {
+    "id": 17,
+    "name": "Thiếu máu cơ tim (Angina/MI)",
+    "group": "Bệnh tim mạch",
+    "description": "Thiếu oxy cơ tim do thiếu máu nuôi, có thể gây đau ngực.",
+    "symptoms": [
+      "đau ngực",
+      "đau lan vai/trái"
+    ],
+    "prevention": [
+      "kiểm soát lipid",
+      "bỏ thuốc lá"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.a8_bisoxo_84PzOBZKZOZwHaFj?w=224&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/_VGZQEtY5hU?si=Fh0XWHdFzBaOgjNc"
+  },
+  {
+    "id": 18,
+    "name": "Quai bị (Mumps)",
+    "group": "Bệnh truyền nhiễm",
+    "description": "Sưng tuyến mang tai, đau khi ăn, do virus.",
+    "symptoms": [
+      "sưng má",
+      "sốt",
+      "đau khi nhai"
+    ],
+    "prevention": [
+      "tiêm vaccine MMR"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.VCJcuTn9Pj18jYA-Kw4VPAHaFj?w=217&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/i5oqiQwdMjM?si=EMx4jux8cO0UFyBH"
+  },
+  {
+    "id": 19,
+    "name": "Viêm họng do liên cầu",
+    "group": "Bệnh hô hấp",
+    "description": "Nhiễm khuẩn gây đau họng dữ dội, cần kháng sinh khi xác định.",
+    "symptoms": [
+      "đau họng",
+      "sốt",
+      "sưng hạch cổ"
+    ],
+    "prevention": [
+      "rửa tay",
+      "khám khi triệu chứng nặng"
+    ],
+    "img": "https://th.bing.com/th/id/OIP.bJPEY5kBvbW1euazvNm12wHaEo?w=274&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "video": "https://www.youtube.com/embed/wpmRzr1Cnsk?si=x_qABCbDVJiYxVJy"
+  },
+  {
+    "id": 20,
+    "name": "Dị ứng (Allergy)",
+    "group": "Khác",
+    "description": "Phản ứng miễn dịch với dị nguyên: mẩn, ngứa, sổ mũi.",
+    "symptoms": [
+      "hắt hơi",
+      "ngứa",
+      "mẩn đỏ"
+    ],
+    "prevention": [
+      "tránh dị nguyên",
+      "thuốc kháng histamine"
+    ],
+    "img": "https://cdn.nhathuoclongchau.com.vn/unsafe/800x0/filters:quality(95)/https://cms-prod.s3-sgn09.fptcloud.com/trieu_chung_di_ung_di_ung_thuoc_phat_ban_1_16feb0312c.jpg",
+    "video": "https://www.youtube.com/embed/JoYnmoJ1iJg?si=mqHScHW6Un9k7nQr"
+  }
+]
